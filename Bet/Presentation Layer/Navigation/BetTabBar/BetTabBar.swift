@@ -114,10 +114,12 @@ public class BetTabBar: UIViewController {
             if self.bottomContainerHeight.constant < 200 {
                 self.bottomContainerHeight.constant = 0
                 self.bottomContainerHeightDefault = 200
-                self.removeChildren()
-                UIView.animate(withDuration: 0.2) {
+                
+                UIView.animate(withDuration: 0.2, animations: {
                     self.view.layoutIfNeeded()
-                }
+                }, completion: { _ in
+                    self.removeChildren()
+                })
             }
         }
     }
